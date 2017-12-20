@@ -1,6 +1,6 @@
 package com.example.knifestart.reddit.di.postcontainer
 
-import com.example.knifestart.reddit.PostScope
+import com.example.knifestart.reddit.PostActivityScope
 import dagger.Module
 import dagger.Provides
 
@@ -9,6 +9,6 @@ import dagger.Provides
  */
 @Module
 class PostModule {
-    @Provides @PostScope
+    @Provides @PostActivityScope
     fun provideTest() = ""
 }

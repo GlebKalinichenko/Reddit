@@ -1,4 +1,4 @@
-package com.example.knifestart.reddit.di.scope
+package com.example.knifestart.reddit
 
 import javax.inject.Scope
 
@@ -7,4 +7,4 @@ import javax.inject.Scope
  */
 @Scope
 @Retention(AnnotationRetention.RUNTIME)
-annotation class PostScope
+annotation class PostActivityScope
