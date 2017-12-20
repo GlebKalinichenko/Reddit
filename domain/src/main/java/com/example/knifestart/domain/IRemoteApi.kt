@@ -1,4 +1,4 @@
-package com.example.knifestart.data
+package com.example.knifestart.domain
 
 import com.example.knifestart.domain.Post
 import io.reactivex.Observable

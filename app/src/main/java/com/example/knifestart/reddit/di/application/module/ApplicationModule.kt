@@ -1,4 +1,4 @@
-package com.example.knifestart.reddit
+package com.example.knifestart.reddit.di
 
 import android.app.Application
 import dagger.Module

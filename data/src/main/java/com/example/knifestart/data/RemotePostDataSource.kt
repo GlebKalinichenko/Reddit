@@ -1,5 +1,6 @@
 package com.example.knifestart.data
 
+import com.example.knifestart.domain.IRemoteApi
 import com.example.knifestart.domain.Post
 import io.reactivex.Observable
 import javax.inject.Inject
