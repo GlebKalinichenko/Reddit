@@ -48,4 +48,5 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:2.11"
     kapt "com.google.dagger:dagger-android-processor:2.11"
     provided 'org.glassfish:javax.annotation:10.0-b28'
+    compile 'ru.terrakok.cicerone:cicerone:2.1.0'
 }

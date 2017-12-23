@@ -4,7 +4,7 @@ import com.example.glebkalinichenko.bouncefire.di.application.GsonModule
 import com.example.glebkalinichenko.bouncefire.di.application.HostModule
 import com.example.glebkalinichenko.bouncefire.di.application.LoggerModule
 import com.example.glebkalinichenko.bouncefire.di.application.NetworkModule
-import com.example.knifestart.reddit.MainApplication
+import com.example.knifestart.reddit.application.MainApplication
 import com.example.knifestart.reddit.di.ApplicationModule
 import com.example.knifestart.reddit.di.postcontainer.PostComponent
 import dagger.Component
