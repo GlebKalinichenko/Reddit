@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import com.example.knifestart.reddit.BR
 import com.example.knifestart.reddit.R
 import com.example.knifestart.reddit.application.MainApplication
 import com.example.knifestart.reddit.di.listposts.ListPostsComponent
-import ru.terrakok.cicerone.Router
+import com.example.knifestart.reddit.listposts.ListPostsViewModel
 import javax.inject.Inject
 
 /**
@@ -18,7 +18,7 @@ import javax.inject.Inject
 class ListPostsFragment : FragmentView<ListPostsComponent>() {
 
     @Inject
-    lateinit var router: Router
+    lateinit var viewModel: ListPostsViewModel
 
     companion object {
         fun newInstance() : ListPostsFragment {
@@ -38,10 +38,6 @@ class ListPostsFragment : FragmentView<ListPostsComponent>() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        view!!.findViewById<TextView>(R.id.text_click).setOnClickListener {
-            router.navigateTo(PostDetailsFragment.javaClass.canonicalName, 2)
-        }
     }
 
     override fun injectDependencies(component: ListPostsComponent) {
@@ -53,6 +49,7 @@ class ListPostsFragment : FragmentView<ListPostsComponent>() {
     }
 
     override fun setState() {
-
+        binding.setVariable(BR.model, viewModel)
+        binding.executePendingBindings()
     }
 }

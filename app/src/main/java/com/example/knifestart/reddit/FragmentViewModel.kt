@@ -7,7 +7,7 @@ import io.reactivex.disposables.Disposable
 /**
  * Created by glebkalinichenko on 24.12.17.
  */
-class FragmentViewModel constructor(var disposables: CompositeDisposable = CompositeDisposable()) : BaseObservable(), BaseViewModel {
+open class FragmentViewModel constructor(var disposables: CompositeDisposable = CompositeDisposable()) : BaseObservable(), BaseViewModel {
 
     override fun dispose() {
         if (!disposables.isDisposed) disposables.dispose()
