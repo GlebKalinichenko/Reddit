@@ -1,6 +1,8 @@
 package com.example.knifestart.reddit.di.listposts
 
 import com.example.knifestart.reddit.di.scope.PostScope
+import com.example.knifestart.reddit.fragment.ListPostsFragment
+import com.example.knifestart.reddit.fragment.PostDetailsFragment
 import dagger.Subcomponent
 
 /**
@@ -14,4 +16,6 @@ interface ListPostsComponent {
         fun listPostsModule(listPostsModule: ListPostsModule) : Builder
         fun build(): ListPostsComponent
     }
+
+    fun inject(listPostsFragment: ListPostsFragment)
 }
