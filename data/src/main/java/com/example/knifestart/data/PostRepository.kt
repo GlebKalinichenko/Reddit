@@ -1,7 +1,8 @@
 package com.example.knifestart.data
 
 import com.example.knifestart.domain.IPostRepository
-import com.example.knifestart.domain.Post
+import com.example.knifestart.domain.entities.Post
+import com.example.knifestart.domain.responses.PostResponse
 import io.reactivex.Observable
 import javax.inject.Inject
 
@@ -10,5 +11,5 @@ import javax.inject.Inject
  */
 class PostRepository @Inject constructor(var remotePostDataSource: RemotePostDataSource) : IPostRepository {
 
-    override fun fetchPosts(): Observable<List<Post>> = remotePostDataSource.fetchPost()
+    override fun fetchPosts(limit: Int): Observable<List<Post>> = remotePostDataSource.fetchPost(limit)
 }

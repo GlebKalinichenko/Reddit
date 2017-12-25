@@ -7,6 +7,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -33,7 +34,8 @@ class NetworkModule {
 
     @Provides @Singleton
     fun provideRetrofit(httpClient: OkHttpClient, baseUrl: String, converter: Converter.Factory): Retrofit =
-            Retrofit.Builder().baseUrl(baseUrl).addConverterFactory(converter).client(httpClient).build()
+            Retrofit.Builder().baseUrl(baseUrl).addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .addConverterFactory(converter).client(httpClient).build()
 
     @Provides @Singleton
     fun provideService(retrofit: Retrofit): IRemoteApi = retrofit.create(IRemoteApi::class.java)

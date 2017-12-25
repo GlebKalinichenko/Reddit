@@ -4,5 +4,6 @@ package com.example.knifestart.reddit.listposts
  * Created by glebkalinichenko on 24.12.17.
  */
 interface IListPostViewModel {
-    public fun openPostDetails()
+    fun openPostDetails()
+    fun fetchPosts(offset: Int, limit: Int)
 }

@@ -1,5 +1,7 @@
 package com.example.knifestart.domain
 
+import com.example.knifestart.domain.entities.Post
+import com.example.knifestart.domain.responses.PostResponse
 import io.reactivex.Observable
 import io.reactivex.Scheduler
 import javax.inject.Inject
@@ -13,7 +15,7 @@ class FetchPostsUseCase @Inject constructor(workScheduler: Scheduler,
                                                    private val postRepository: IPostRepository) : QueryUseCase<List<Post>, FetchPostsUseCase.FetchPostsParam>(workScheduler, observeScheduler) {
 
     override fun buildUseCaseObservable(params: FetchPostsParam): Observable<List<Post>> {
-        return postRepository.fetchPosts()
+        return postRepository.fetchPosts(params.limit)
     }
 
     class FetchPostsParam(offset: Int, limit: Int) {

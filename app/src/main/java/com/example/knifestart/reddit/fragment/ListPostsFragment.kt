@@ -40,6 +40,11 @@ class ListPostsFragment : FragmentView<ListPostsComponent>() {
         super.onViewCreated(view, savedInstanceState)
     }
 
+    override fun onStart() {
+        super.onStart()
+         viewModel.onStart()
+    }
+
     override fun injectDependencies(component: ListPostsComponent) {
        component.inject(this)
     }

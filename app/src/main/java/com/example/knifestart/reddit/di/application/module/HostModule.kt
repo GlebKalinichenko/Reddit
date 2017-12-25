@@ -12,7 +12,7 @@ class HostModule {
     val NETWORK_TIMEOUT_SECONDS = 60L
 
     @Provides @Singleton
-    fun provideBaseUrl() = "https://www.reddit.com/api/"
+    fun provideBaseUrl() = "https://www.reddit.com/"
 
     @Provides @Singleton
     fun provideNetworkTimeout() = NETWORK_TIMEOUT_SECONDS
