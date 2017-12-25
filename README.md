@@ -1,2 +1,3 @@
-# Reddit
-Mobile client for reddit.com
+# Reddit Client
+Implementing improving VIPER Pattern for Android application
+
