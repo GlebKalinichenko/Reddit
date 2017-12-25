@@ -11,5 +11,5 @@ import retrofit2.http.Query
  */
 interface IRemoteApi {
     @GET("top.json")
-    fun fetchPosts(@Query("limit") limit: String) : Observable<List<NewsResponse>>
+    fun fetchPosts(@Query("limit") limit: String) : Observable<NewsResponse>
 }
