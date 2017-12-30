@@ -7,5 +7,5 @@ import io.reactivex.Observable
  * Created by glebkalinichenko on 19.12.17.
  */
 interface PostDataSource {
-    fun fetchPost(limit: Int) : Observable<List<Post>>
+    fun fetchPost(limit: Int) : Observable<MutableList<Post>>
 }

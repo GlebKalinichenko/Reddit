@@ -12,7 +12,7 @@ import javax.inject.Inject
  */
 class RemotePostDataSource @Inject constructor (var api: IRemoteApi, var wrapper: PostResponseWrapper) : PostDataSource {
 
-    override fun fetchPost(limit: Int): Observable<List<Post>> {
+    override fun fetchPost(limit: Int): Observable<MutableList<Post>> {
         return api.fetchPosts(limit.toString()).flatMap { i -> Observable.fromArray(wrapper.convertPostResponse(i)) }
     }
 }

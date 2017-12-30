@@ -12,9 +12,9 @@ import javax.inject.Inject
  */
 class FetchPostsUseCase @Inject constructor(workScheduler: Scheduler,
                                                    observeScheduler: Scheduler,
-                                                   private val postRepository: IPostRepository) : QueryUseCase<List<Post>, FetchPostsUseCase.FetchPostsParam>(workScheduler, observeScheduler) {
+                                                   private val postRepository: IPostRepository) : QueryUseCase<MutableList<Post>, FetchPostsUseCase.FetchPostsParam>(workScheduler, observeScheduler) {
 
-    override fun buildUseCaseObservable(params: FetchPostsParam): Observable<List<Post>> {
+    override fun buildUseCaseObservable(params: FetchPostsParam): Observable<MutableList<Post>> {
         return postRepository.fetchPosts(params.limit)
     }
 

@@ -1,8 +1,13 @@
 package com.example.knifestart.reddit.listposts
 
+import android.databinding.Bindable
 import android.util.Log
 import com.example.knifestart.domain.FetchPostsUseCase
+import com.example.knifestart.domain.entities.Post
+import com.example.knifestart.reddit.BR
 import com.example.knifestart.reddit.FragmentViewModel
+import com.example.knifestart.reddit.R
+import com.example.knifestart.reddit.adapter.PostAdapter
 import com.example.knifestart.reddit.fragment.PostDetailsFragment
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
@@ -11,6 +16,10 @@ import javax.inject.Inject
  * Created by glebkalinichenko on 24.12.17.
  */
 class ListPostsViewModel @Inject constructor(var fetchPostsUseCase: FetchPostsUseCase, var router: Router) : FragmentViewModel(), IListPostViewModel {
+    private var isProgressVisible: Boolean = false
+    var adapter: PostAdapter = PostAdapter(R.layout.item_post)
+    var posts = mutableListOf<Post>()
+
     override fun onCreateView() {
 
     }
@@ -27,8 +36,17 @@ class ListPostsViewModel @Inject constructor(var fetchPostsUseCase: FetchPostsUs
         addDisposable(fetchPostsUseCase.run(FetchPostsUseCase.FetchPostsParam(offset, limit))
                 .doOnError { Log.d(LOG_TAG,  "Error") }
                 .subscribe {
-                    response -> Log.d(LOG_TAG, response.size.toString())
+                    response -> posts.addAll(response)
+                    adapter.addDataSource(posts)
                 })
+    }
+
+    @Bindable
+    fun isProgressVisible() = isProgressVisible
+
+    fun setProgressVisible(progressVisible: Boolean) {
+        this.isProgressVisible = progressVisible
+        notifyPropertyChanged(BR.progressVisible)
     }
 
     override fun onDestroyView() {

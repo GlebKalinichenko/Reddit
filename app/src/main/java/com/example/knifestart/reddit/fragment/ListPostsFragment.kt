@@ -33,6 +33,7 @@ class ListPostsFragment : FragmentView<ListPostsComponent>() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list_posts, container, false)
+
         return binding.root
     }
 

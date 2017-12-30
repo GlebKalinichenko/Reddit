@@ -9,7 +9,7 @@ import javax.inject.Inject
  */
 class PostResponseWrapper @Inject constructor() {
 
-    fun convertPostResponse(responses: NewsResponse): List<Post> {
+    fun convertPostResponse(responses: NewsResponse): MutableList<Post> {
         var convertedPosts = mutableListOf<Post>()
 
         var childrens = responses.data.children

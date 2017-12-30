@@ -11,5 +11,5 @@ import javax.inject.Inject
  */
 class PostRepository @Inject constructor(var remotePostDataSource: RemotePostDataSource) : IPostRepository {
 
-    override fun fetchPosts(limit: Int): Observable<List<Post>> = remotePostDataSource.fetchPost(limit)
+    override fun fetchPosts(limit: Int): Observable<MutableList<Post>> = remotePostDataSource.fetchPost(limit)
 }
