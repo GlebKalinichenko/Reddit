@@ -33,11 +33,13 @@ class ListPostsViewModel @Inject constructor(var fetchPostsUseCase: FetchPostsUs
     }
 
     override fun fetchPosts(offset: Int, limit: Int) {
+        setProgressVisible(true)
         addDisposable(fetchPostsUseCase.run(FetchPostsUseCase.FetchPostsParam(offset, limit))
                 .doOnError { Log.d(LOG_TAG,  "Error") }
                 .subscribe {
                     response -> posts.addAll(response)
                     adapter.addDataSource(posts)
+                    setProgressVisible(false)
                 })
     }
 
