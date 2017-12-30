@@ -17,11 +17,12 @@ import javax.inject.Inject
  */
 class ListPostsViewModel @Inject constructor(var fetchPostsUseCase: FetchPostsUseCase, var router: Router) : FragmentViewModel(), IListPostViewModel {
     private var isProgressVisible: Boolean = false
-    var adapter: PostAdapter = PostAdapter(R.layout.item_post)
     var posts = mutableListOf<Post>()
+    var adapter: PostAdapter = PostAdapter(R.layout.item_post) {
+        post -> Log.d(LOG_TAG, post.title)
+    }
 
     override fun onCreateView() {
-
     }
 
     override fun onStart() {

@@ -22,6 +22,10 @@ abstract class BaseAdapter : RecyclerView.Adapter<BaseViewHolder>() {
     override fun onBindViewHolder(holder: BaseViewHolder?, position: Int) {
         var obj = getObjForPosition(position)
         holder!!.bind(obj)
+
+        holder.binding.root.setOnClickListener {
+            onSelected(position)
+        }
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -31,4 +35,6 @@ abstract class BaseAdapter : RecyclerView.Adapter<BaseViewHolder>() {
     internal abstract fun getObjForPosition(position: Int): Any
 
     internal abstract fun getLayoutIdForPosition(position: Int): Int
+
+    internal abstract fun onSelected(position: Int)
 }
